@@ -14,10 +14,8 @@ public class Snake
         gameWindow.setLocationRelativeTo(null);
         gameWindow.setFocusable(true);
         gameWindow.setFocusTraversalKeysEnabled(false);
-        gameWindow.setVisible(true);
         new keyHandler();
-        Game rect1 = new Game(X,Y,Color.BLACK,20,20);
-        gameWindow.getContentPane().add(rect1, BorderLayout.CENTER);
-        gameWindow.repaint();
+        gameWindow.add(new Game(0,Y/2,Color.BLACK,75,15));
+        gameWindow.setVisible(true);
     }
 }

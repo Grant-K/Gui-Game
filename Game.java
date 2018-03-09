@@ -10,7 +10,6 @@ public class Game extends JComponent
     public int height;
     public int xpos;
     public int ypos;
-    JFrame gameWindow = Snake.gameWindow;
     public void paintComponent(Graphics g) 
     {
         Graphics2D gg = (Graphics2D) g;
@@ -20,10 +19,18 @@ public class Game extends JComponent
 
     public Game(int x, int y, Color color, int width, int height)
     {
-        color = this.color;
-        width = this.width;
-        height = this.height;
+        this.color = color;
+        this.width = width;
+        this.height = height;
+        System.out.println(""+color+""+width+""+height);
         xpos = x;
         ypos = y;
+        repaint();
+    }
+    
+    public void moveUp()
+    {
+        ypos += 10;
+        repaint();
     }
 }

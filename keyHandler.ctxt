@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.params=
-comment0.target=keyHandler()
+comment0.target=void\ keyHandlerStart()
 comment1.params=e
 comment1.target=void\ keyPressed(java.awt.event.KeyEvent)
 comment2.params=e

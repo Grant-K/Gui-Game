@@ -14,6 +14,10 @@ public class keyHandler implements KeyListener
     public void keyPressed(KeyEvent e) {
         System.out.println("keyPressed");
         displayKeyInfo(e, "keyPressed");
+        if(e.getID() == 38)
+        {
+            Game.moveUp();
+        }
     }
 
     public void keyReleased(KeyEvent e) {
