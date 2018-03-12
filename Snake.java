@@ -16,7 +16,7 @@ public class Snake
         gameWindow.setFocusable(true);
         gameWindow.setFocusTraversalKeysEnabled(false);
         new keyHandler();
-        gameWindow.getContentPane().add(rect1);
+        gameWindow.add(rect1);
         gameWindow.setVisible(true);
     }
 }

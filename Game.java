@@ -5,7 +5,6 @@ import javax.swing.*;
 
 public class Game extends JComponent
 {
-    JFrame gameWindow = Snake.gameWindow;
     public Color color;
     public int width;
     public int height;
@@ -51,8 +50,7 @@ public class Game extends JComponent
 
     public void moveRight()
     {
-        System.out.println("getWidth Returns: " + gameWindow.getWidth() + " getSize Returns" + gameWindow.getSize() + " this.getWidth Returns" + this.getWidth() + " THIS" + this.toString());
-        if(xpos + 5 + this.getWidth() <= gameWindow.getWidth())
+        if((xpos + 5 + width) <= this.getWidth())
         {
             xpos += 5;            
         }
@@ -62,8 +60,7 @@ public class Game extends JComponent
     
     public void moveDown()
     {
-        System.out.println("getHeight Returns: " + gameWindow.getHeight() + " getSize Returns" + gameWindow.getSize() + " this.getHeight Returns" + this.getHeight());
-        if(ypos + 5 + this.getHeight() <= gameWindow.getHeight())
+        if((ypos + 5 + height) <= this.getHeight())
         {
             ypos += 5;
         }
