@@ -5,6 +5,7 @@ import javax.swing.*;
 
 public class keyHandler implements KeyListener
 {
+    public final static boolean inDebugMode = Snake.inDebugMode;
     JFrame gameWindow = Snake.gameWindow;
     Game rect1 = Snake.rect1;
     public keyHandler()
@@ -13,9 +14,12 @@ public class keyHandler implements KeyListener
     }
 
     public void keyPressed(KeyEvent e) {
-        //System.out.println("keyPressed");
-        //displayKeyInfo(e, "keyPressed");
-        System.out.println("Key Code = " + e.getKeyCode() + " Key Text = " + e.getKeyText(e.getKeyCode()));
+        if(inDebugMode)
+        {
+            System.out.println("keyPressed");
+            displayKeyInfo(e, "keyPressed");
+            System.out.println("Key Code = " + e.getKeyCode() + " Key Text = " + e.getKeyText(e.getKeyCode()));
+        }
         if(e.getKeyCode() == 37)
         {
             rect1.moveLeft();
@@ -35,13 +39,19 @@ public class keyHandler implements KeyListener
     }
 
     public void keyReleased(KeyEvent e) {
-        //System.out.println("keyReleased");
-        //displayKeyInfo(e, "keyReleased");
+        if(inDebugMode)
+        {
+            System.out.println("keyReleased");
+            displayKeyInfo(e, "keyReleased");
+        }
     }
 
     public void keyTyped(KeyEvent e) {
-        //System.out.println("keyTyped");
-        //displayKeyInfo(e, "keyTyped");
+        if(inDebugMode)
+        {
+            System.out.println("keyTyped");
+            displayKeyInfo(e, "keyTyped");
+        }
     }
 
     private void displayKeyInfo(KeyEvent e, String eventType)

@@ -5,6 +5,7 @@ import javax.swing.*;
 
 public class Game extends JComponent
 {
+    public final static boolean inDebugMode = Snake.inDebugMode;
     public Color color;
     public int width;
     public int height;
@@ -22,7 +23,8 @@ public class Game extends JComponent
         this.color = color;
         this.width = width;
         this.height = height;
-        System.out.println(""+color+""+width+""+height);
+        if(inDebugMode)
+            System.out.println(""+color+""+width+""+height);
         xpos = x;
         ypos = y;
         repaint();
@@ -34,7 +36,8 @@ public class Game extends JComponent
         {
             xpos -= 5;
         }
-        System.out.println("New X Pos = " + xpos);
+        if(inDebugMode)
+            System.out.println("New X Pos = " + xpos);
         repaint();
     }
     
@@ -44,7 +47,8 @@ public class Game extends JComponent
         {
             ypos -= 5;
         }
-        System.out.println("New Y Pos = " + ypos);
+        if(inDebugMode)
+            System.out.println("New Y Pos = " + ypos);
         repaint();
     }
 
@@ -54,7 +58,8 @@ public class Game extends JComponent
         {
             xpos += 5;            
         }
-        System.out.println("New X Pos = " + xpos);
+        if(inDebugMode)
+            System.out.println("New X Pos = " + xpos);
         repaint();
     }
     
@@ -64,7 +69,8 @@ public class Game extends JComponent
         {
             ypos += 5;
         }
-        System.out.println("New Y Pos = " + ypos);
+        if(inDebugMode)
+            System.out.println("New Y Pos = " + ypos);
         repaint();
     }
 }
