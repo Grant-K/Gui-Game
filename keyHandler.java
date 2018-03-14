@@ -59,17 +59,22 @@ public class keyHandler implements KeyListener
         int typeId = e.getID();
         int keyCode = -1;
         String keyText;
+        char keyChar;
         String printString;
-        if(typeId == KeyEvent.KEY_RELEASED)
+        if(typeId == KeyEvent.KEY_RELEASED || typeId == KeyEvent.KEY_PRESSED)
         {
             keyCode = e.getKeyCode();
             keyText = KeyEvent.getKeyText(keyCode);
             printString = "Key Code = " + keyCode + "\nKey's Text = " + keyText;
             System.out.println(printString);
         }
-        else
+        else if(typeId == KeyEvent.KEY_TYPED)
         {
-            System.out.println("Was not a key released event!");
+            keyCode = e.getKeyCode();
+            keyText = KeyEvent.getKeyText(keyCode);
+            keyChar = e.getKeyChar();
+            printString = "Key Code = " + keyCode + "\nKey's Text = " + keyText + "\nKey Char = " + keyChar;
+            System.out.println(printString);
         }
     }
 }

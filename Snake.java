@@ -11,6 +11,7 @@ public class Snake
     public static JPanel gamePanel = new JPanel();
     public static JFrame gameWindow = new JFrame("Snake");
     public static Game rect1 = new Game(0,Y/2,Color.BLACK,75,17);
+    public static Game rect2 = new Game(X/2,Y/2,Color.BLACK,50,10);
     public static void main(String[] args)
     {
         gameWindow.setSize(X, Y);
@@ -19,6 +20,7 @@ public class Snake
         gameWindow.setFocusTraversalKeysEnabled(false);
         new keyHandler();
         gameWindow.add(rect1);
+        gameWindow.add(rect2);
         gameWindow.setVisible(true);
     }
 }
