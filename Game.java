@@ -6,6 +6,8 @@ import javax.swing.*;
 public class Game extends JComponent
 {
     public final static boolean inDebugMode = Snake.inDebugMode;
+    public final static int frameWidth = Snake.X;
+    public final static int frameHeight = Snake.Y;
     public Color color;
     public int width;
     public int height;
@@ -14,6 +16,7 @@ public class Game extends JComponent
     public void paintComponent(Graphics g) 
     {
         Graphics2D gg = (Graphics2D) g;
+        super.paintComponent(g);
         gg.setColor(color);
         gg.fillRect(xpos,ypos,width,height);
     }
@@ -54,7 +57,11 @@ public class Game extends JComponent
 
     public void moveRight()
     {
-        if((xpos + 5 + width) <= this.getWidth())
+        if(inDebugMode)
+        {
+            System.out.println("Xpos = " + xpos + "\nWidth = " + width + "\nframeWidth = " + frameWidth);
+        }
+        if((xpos + 5 + width) <= frameWidth)
         {
             xpos += 5;            
         }
