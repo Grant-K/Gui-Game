@@ -5,20 +5,17 @@ import javax.swing.*;
 
 public class Game extends JComponent
 {
-    public final static boolean inDebugMode = Snake.inDebugMode;
-    public final static int frameWidth = Snake.X;
-    public final static int frameHeight = Snake.Y;
-    public Color color;
-    public int width;
-    public int height;
-    public int xpos;
-    public int ypos;
+    private final static boolean inDebugMode = Snake.inDebugMode;
+    private final static int frameWidth = Snake.X;
+    private final static int frameHeight = Snake.Y;
+    private Color color;
+    private int width;
+    private int height;
+    private int xpos;
+    private int ypos;
     public void paintComponent(Graphics g) 
     {
-        Graphics2D gg = (Graphics2D) g;
         super.paintComponent(g);
-        gg.setColor(color);
-        gg.fillRect(xpos,ypos,width,height);
     }
 
     public Game(int x, int y, Color color, int width, int height)
@@ -72,12 +69,32 @@ public class Game extends JComponent
     
     public void moveDown()
     {
-        if((ypos + 5 + height) <= this.getHeight())
+        if((ypos + 5 + height) <= frameHeight)
         {
             ypos += 5;
         }
         if(inDebugMode)
             System.out.println("New Y Pos = " + ypos);
         repaint();
+    }
+    
+    public int getWidth()
+    {
+        return width;
+    }
+    
+    public int getHeight()
+    {
+        return height;
+    }
+    
+    public int getXPos()
+    {
+        return xpos;
+    }
+    
+        public int getYPos()
+    {
+        return ypos;
     }
 }

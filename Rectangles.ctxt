@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=x\ y\ color\ width\ height
+comment0.target=Rectangles(int,\ int,\ java.awt.Color,\ int,\ int)
+comment1.params=g
+comment1.target=void\ fillRect(java.awt.Graphics)
+numComments=2
