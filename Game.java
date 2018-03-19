@@ -3,98 +3,44 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Game extends JComponent
+public class Game extends JPanel
 {
-    private final static boolean inDebugMode = Snake.inDebugMode;
-    private final static int frameWidth = Snake.X;
-    private final static int frameHeight = Snake.Y;
-    private Color color;
-    private int width;
-    private int height;
-    private int xpos;
-    private int ypos;
-    public void paintComponent(Graphics g) 
+    public final static int X = 1126;
+    public final static int Y = 680;
+    public static ArrayList<Rectangles> rects = new ArrayList<Rectangles>();
+    public static Rectangles rect1 = new Rectangles(0,Y/2,Color.BLACK,75,17);
+    public static Rectangles rect2 = new Rectangles(X/2,Y/2,Color.BLACK,50,10);
+    public Game()
+    {
+        super();
+        rects.add(rect1);
+        rects.add(rect2);
+        System.out.println(Y/2);
+        setSize(X, Y);
+        add(rect1);
+        add(rect2);
+        setVisible(true);
+        Thread animationThread2 = new Thread(new Runnable()
+                {
+                    public void run() 
+                    {
+                        while (true) 
+                        {
+                            revalidate();
+                            repaint();
+                            try {Thread.sleep(10);} catch (Exception ex) {}
+                        }
+                    }
+                });
+    }
+
+    public void paintComponent(Graphics g)
     {
         super.paintComponent(g);
-    }
 
-    public Game(int x, int y, Color color, int width, int height)
-    {
-        this.color = color;
-        this.width = width;
-        this.height = height;
-        if(inDebugMode)
-            System.out.println(""+color+""+width+""+height);
-        xpos = x;
-        ypos = y;
-        repaint();
-    }
-
-    public void moveLeft()
-    {
-        if(xpos - 5 >= 0)
+        for(Rectangles rect : rects)
         {
-            xpos -= 5;
+            rect.paint(g);
         }
-        if(inDebugMode)
-            System.out.println("New X Pos = " + xpos);
-        repaint();
-    }
-    
-    public void moveUp()
-    {
-        if(ypos - 5 >= 0)
-        {
-            ypos -= 5;
-        }
-        if(inDebugMode)
-            System.out.println("New Y Pos = " + ypos);
-        repaint();
-    }
-
-    public void moveRight()
-    {
-        if(inDebugMode)
-        {
-            System.out.println("Xpos = " + xpos + "\nWidth = " + width + "\nframeWidth = " + frameWidth);
-        }
-        if((xpos + 5 + width) <= frameWidth)
-        {
-            xpos += 5;            
-        }
-        if(inDebugMode)
-            System.out.println("New X Pos = " + xpos);
-        repaint();
-    }
-    
-    public void moveDown()
-    {
-        if((ypos + 5 + height) <= frameHeight)
-        {
-            ypos += 5;
-        }
-        if(inDebugMode)
-            System.out.println("New Y Pos = " + ypos);
-        repaint();
-    }
-    
-    public int getWidth()
-    {
-        return width;
-    }
-    
-    public int getHeight()
-    {
-        return height;
-    }
-    
-    public int getXPos()
-    {
-        return xpos;
-    }
-    
-        public int getYPos()
-    {
-        return ypos;
     }
 }

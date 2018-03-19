@@ -7,7 +7,7 @@ public class keyHandler implements KeyListener
 {
     public final static boolean inDebugMode = Snake.inDebugMode;
     JFrame gameWindow = Snake.gameWindow;
-    Game rect1 = Snake.rect1;
+    ArrayList<Rectangles> rects = Game.rects;
     public keyHandler()
     {
         gameWindow.addKeyListener(this);
@@ -22,19 +22,19 @@ public class keyHandler implements KeyListener
         }
         if(e.getKeyCode() == 37)
         {
-            rect1.moveLeft();
+            rects.get(0).moveLeft();
         }
         else if(e.getKeyCode() == 38)
         {
-            rect1.moveUp();
+            rects.get(0).moveUp();
         }
         else if(e.getKeyCode() == 39)
         {
-            rect1.moveRight();
+            rects.get(0).moveRight();
         }
         else if(e.getKeyCode() == 40)
         {
-            rect1.moveDown();
+            rects.get(0).moveDown();
         }
     }
 
