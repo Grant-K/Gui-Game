@@ -1,2 +1,6 @@
 #BlueJ class context
-numComments=0
+comment0.params=
+comment0.target=Intersects()
+comment1.params=gg
+comment1.target=void\ checkIntersect(java.awt.Graphics2D)
+numComments=2

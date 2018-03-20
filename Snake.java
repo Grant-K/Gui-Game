@@ -15,18 +15,6 @@ public class Snake extends JFrame
         Game mainGame = new Game();
         getContentPane().add(mainGame);
         setVisible(true);
-        Thread animationThread2 = new Thread(new Runnable()
-                {
-                    public void run() 
-                    {
-                        while (true) 
-                        {
-                            revalidate();
-                            repaint();
-                            try {Thread.sleep(10);} catch (Exception ex) {}
-                        }
-                    }
-                });
     }
 
     public static void main(String[] args)

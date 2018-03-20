@@ -8,19 +8,19 @@ public class Rectangles extends JComponent
     private final static int frameWidth = Game.X;
     private final static int frameHeight = Game.Y;
     private Color color;
-    private int width;
-    private int height;
+    public boolean player = false;
     private int xpos;
     private int ypos;
     public Rectangles(int x, int y, Color color, int width, int height)
     {
         this.color = color;
-        this.width = width;
-        this.height = height;
+        setPreferredSize(new Dimension(width, height));
         System.out.println(""+color+""+width+""+height);
         xpos = x;
         ypos = y;
+        repaint();
     }
+    
     
     public void moveLeft()
     {
@@ -44,11 +44,11 @@ public class Rectangles extends JComponent
 
     public void moveRight()
     {
-        if(inDebugMode)
-        {
-            System.out.println("Xpos = " + xpos + "\nWidth = " + width + "\nframeWidth = " + frameWidth);
-        }
-        if((xpos + 5 + width) <= frameWidth)
+//         if(inDebugMode)
+//         {
+//             System.out.println("Xpos = " + xpos + "\nWidth = " + width + "\nframeWidth = " + frameWidth);
+//         }
+        if((xpos + 5 + getWidth()) <= frameWidth)
         {
             xpos += 5;            
         }
@@ -58,7 +58,7 @@ public class Rectangles extends JComponent
     
     public void moveDown()
     {
-        if((ypos + 5 + height) <= frameHeight)
+        if((ypos + 5 + getHeight()) <= frameHeight)
         {
             ypos += 5;
         }
@@ -66,10 +66,20 @@ public class Rectangles extends JComponent
             System.out.println("New Y Pos = " + ypos);
     }
     
-    public void paint(Graphics g)
+    public void paintComponent(Graphics g)
     {
         Graphics2D gg = (Graphics2D) g;
         gg.setColor(color);
-        gg.fillRect(xpos, ypos, width, height);
+        gg.fillRect(xpos, ypos, (int) getPreferredSize().getWidth(), (int) getPreferredSize().getHeight());
+        setLocation(xpos, ypos);
+        if(player)
+        {
+            Game.pCheck.checkIntersect(gg);
+        }
+    }
+    
+    public void setPlayer(boolean isPlayer)
+    {
+        player = isPlayer;
     }
 }
