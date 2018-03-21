@@ -8,7 +8,7 @@ public class Rectangles extends JComponent
     private final static int frameWidth = Game.X;
     private final static int frameHeight = Game.Y;
     private Color color;
-    public boolean player = false;
+    private boolean player = false;
     private int xpos;
     private int ypos;
     public Rectangles(int x, int y, Color color, int width, int height)
@@ -81,5 +81,10 @@ public class Rectangles extends JComponent
     public void setPlayer(boolean isPlayer)
     {
         player = isPlayer;
+    }
+    
+    public void draw()
+    {
+        repaint();
     }
 }

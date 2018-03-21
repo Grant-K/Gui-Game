@@ -9,25 +9,20 @@ public class Snake extends JFrame
     public static JFrame gameWindow;
     public Snake()
     {
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(1126, 680);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
         Game mainGame = new Game();
         getContentPane().add(mainGame);
+        requestFocus();
+        requestFocusInWindow();
         setVisible(true);
     }
 
     public static void main(String[] args)
     {
-        SwingUtilities.invokeLater(new Runnable()
-            {
-
-                public void run()
-                {
-                    gameWindow = new Snake();
-                    gameWindow.setVisible(true);
-                    gameWindow.addKeyListener(new keyHandler());
-                }
-            });
+        gameWindow = new Snake();
+        gameWindow.addKeyListener(new keyHandler());
     }
 }
