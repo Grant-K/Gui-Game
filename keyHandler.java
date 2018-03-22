@@ -22,19 +22,19 @@ public class keyHandler implements KeyListener
         }
         if(e.getKeyCode() == 37)
         {
-            rects.get(1).moveLeft();
+            rects.get(0).moveLeft();
         }
         else if(e.getKeyCode() == 38)
         {
-            rects.get(1).moveUp();
+            rects.get(0).moveUp();
         }
         else if(e.getKeyCode() == 39)
         {
-            rects.get(1).moveRight();
+            rects.get(0).moveRight();
         }
         else if(e.getKeyCode() == 40)
         {
-            rects.get(1).moveDown();
+            rects.get(0).moveDown();
         }
     }
 

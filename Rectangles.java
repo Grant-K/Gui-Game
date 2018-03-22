@@ -72,6 +72,7 @@ public class Rectangles extends JComponent
         gg.setColor(color);
         gg.fillRect(xpos, ypos, (int) getPreferredSize().getWidth(), (int) getPreferredSize().getHeight());
         setLocation(xpos, ypos);
+        System.out.println(player);
         if(player)
         {
             Game.pCheck.checkIntersect(gg);

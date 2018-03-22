@@ -13,14 +13,13 @@ public class Game extends JPanel
     public static ArrayList<Rectangles> rects = new ArrayList<Rectangles>();
     public Game()
     {
-        super();
         rects.add(new Rectangles(0,Y/2,Color.BLACK,75,17));
         rects.add(new Rectangles(X/2,Y/2,Color.BLACK,50,10));
         System.out.println(Y/2);
         setSize(X, Y);
+        setVisible(true);
         add(rects.get(0));
         add(rects.get(1));
-        setVisible(true);
         pCheck = new Intersects();
         Timer timer = new Timer();
         timer.schedule(new TimerTask()
@@ -35,19 +34,20 @@ public class Game extends JPanel
 
     public void paintComponent(Graphics g)
     {
-        super.paintComponent(g);
-        System.out.println(rects.size());
+        //super.paintComponent(g);
+        //System.out.println(rects.size());
         //System.out.println("Width: " + rects.get(0).getWidth() + " Height: " + rects.get(0).getHeight() + " Size: " + rects.get(0).getSize());
         for(int x = 0; x < rects.size(); x++)
         {
+            //System.out.println(x);
             if(x == 0)
             {
                 rects.get(x).setPlayer(true);
-                rects.get(x).draw();
+                rects.get(x).repaint();
             }
             else
             {
-                rects.get(x).draw();
+                rects.get(x).repaint();
             }
         }
     }
