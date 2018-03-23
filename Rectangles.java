@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.util.Random;
+import java.lang.Math;
 public class Rectangles extends JComponent
 {
     private final static boolean inDebugMode = Snake.inDebugMode;
@@ -11,6 +13,9 @@ public class Rectangles extends JComponent
     private boolean player = false;
     private int xpos;
     private int ypos;
+    private static Random rand = new Random();
+    public static double moveAngle;
+    public static int speed = 5;
     public Rectangles(int x, int y, Color color, int width, int height)
     {
         this.color = color;
@@ -18,6 +23,8 @@ public class Rectangles extends JComponent
         System.out.println(""+color+""+width+""+height);
         xpos = x;
         ypos = y;
+        moveAngle = (double)180 + rand.nextDouble() * ((double)0 - (double)180);
+        System.out.println(moveAngle);
         repaint();
     }
     
@@ -72,7 +79,7 @@ public class Rectangles extends JComponent
         gg.setColor(color);
         gg.fillRect(xpos, ypos, (int) getPreferredSize().getWidth(), (int) getPreferredSize().getHeight());
         setLocation(xpos, ypos);
-        System.out.println(player);
+        //System.out.println(player);
         if(player)
         {
             Game.pCheck.checkIntersect(gg);
@@ -87,5 +94,13 @@ public class Rectangles extends JComponent
     public void draw()
     {
         repaint();
+    }
+
+    public void move()
+    {
+        xpos += speed * Math.cos(Math.toRadians(moveAngle));
+        ypos += speed * Math.sin(Math.toRadians(moveAngle));
+        System.out.println(xpos);
+        System.out.println(ypos);
     }
 }

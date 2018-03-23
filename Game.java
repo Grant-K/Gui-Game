@@ -13,8 +13,9 @@ public class Game extends JPanel
     public static ArrayList<Rectangles> rects = new ArrayList<Rectangles>();
     public Game()
     {
-        rects.add(new Rectangles(0,Y/2,Color.BLACK,75,17));
-        rects.add(new Rectangles(X/2,Y/2,Color.BLACK,50,10));
+        super();
+        rects.add(new Rectangles((X/2)-75,624,Color.BLACK,75,17));
+        rects.add(new Rectangles(X/2,Y/2,new Color(200, 0, 0),50,10));
         System.out.println(Y/2);
         setSize(X, Y);
         setVisible(true);
@@ -23,18 +24,29 @@ public class Game extends JPanel
         pCheck = new Intersects();
         Timer timer = new Timer();
         timer.schedule(new TimerTask()
-        {
-            public void run()
             {
-                System.out.println("Panel Refreshing...");
-                repaint();
-            }
-        }, 1000, 200);
+                public void run()
+                {
+                    //System.out.println("Panel Refreshing...");
+                    repaint();
+                }
+            }, 100, 10);
+        Timer timer2 = new Timer();
+        timer2.schedule(new TimerTask()
+            {
+                public void run()
+                {
+                    for(int x = 1; x < rects.size(); x++)
+                    {
+                        rects.get(x).move();
+                    }
+                }
+            }, 100, 50);
     }
 
     public void paintComponent(Graphics g)
     {
-        //super.paintComponent(g);
+        super.paintComponent(g);
         //System.out.println(rects.size());
         //System.out.println("Width: " + rects.get(0).getWidth() + " Height: " + rects.get(0).getHeight() + " Size: " + rects.get(0).getSize());
         for(int x = 0; x < rects.size(); x++)
@@ -43,11 +55,11 @@ public class Game extends JPanel
             if(x == 0)
             {
                 rects.get(x).setPlayer(true);
-                rects.get(x).repaint();
+                rects.get(x).paintComponent(g);
             }
             else
             {
-                rects.get(x).repaint();
+                rects.get(x).paintComponent(g);
             }
         }
     }
