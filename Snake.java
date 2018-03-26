@@ -15,6 +15,7 @@ public class Snake extends JFrame
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(1126, 680);
         setFocusable(true);
+        setResizable(false);
         setFocusTraversalKeysEnabled(false);
         Game mainGame = new Game();
         getContentPane().add(mainGame);

@@ -15,7 +15,7 @@ public class Rectangles extends JComponent
     private int ypos;
     private static Random rand = new Random();
     public static double moveAngle;
-    public static int speed = 5;
+    public static int speed = 8;
     public Rectangles(int x, int y, Color color, int width, int height)
     {
         this.color = color;
@@ -55,7 +55,7 @@ public class Rectangles extends JComponent
 //         {
 //             System.out.println("Xpos = " + xpos + "\nWidth = " + width + "\nframeWidth = " + frameWidth);
 //         }
-        if((xpos + 5 + getWidth()) <= frameWidth)
+        if((xpos + 5 + getWidth()) <= 1110)
         {
             xpos += 5;            
         }
@@ -65,7 +65,7 @@ public class Rectangles extends JComponent
     
     public void moveDown()
     {
-        if((ypos + 5 + getHeight()) <= frameHeight)
+        if((ypos + 5 + getHeight()) <= 625)
         {
             ypos += 5;
         }
@@ -100,7 +100,26 @@ public class Rectangles extends JComponent
     {
         xpos += speed * Math.cos(Math.toRadians(moveAngle));
         ypos += speed * Math.sin(Math.toRadians(moveAngle));
-        System.out.println(xpos);
-        System.out.println(ypos);
+        if(ypos >= 635)
+        {
+            ypos = 0;
+            moveAngle = (double)180 + rand.nextDouble() * ((double)0 - (double)180);
+        }
+        if(xpos >= 1075)
+        {
+            moveAngle = 180 - moveAngle;
+            xpos += speed * Math.cos(Math.toRadians(moveAngle));
+            xpos += speed * Math.cos(Math.toRadians(moveAngle));
+            xpos += speed * Math.cos(Math.toRadians(moveAngle));
+        }
+        if(xpos <= 0)
+        {
+            moveAngle = 180 - moveAngle;
+            xpos += speed * Math.cos(Math.toRadians(moveAngle));
+            xpos += speed * Math.cos(Math.toRadians(moveAngle));
+            xpos += speed * Math.cos(Math.toRadians(moveAngle));
+        }
+        //System.out.println(xpos);
+        //System.out.println(ypos);
     }
 }
