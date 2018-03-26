@@ -7,11 +7,12 @@ public class Snake extends JFrame
 {
     static GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
     static GraphicsDevice gs = ge.getDefaultScreenDevice();
-    public final static boolean inDebugMode = true;
+    public final static boolean inDebugMode = false;
     public static JFrame gameWindow;
     public Snake()
     {
         super("Game", gs.getDefaultConfiguration());
+        System.out.println("Dont get hit by the red rectangle otherwise you lose!");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(1126, 680);
         setFocusable(true);

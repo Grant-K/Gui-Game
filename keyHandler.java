@@ -26,7 +26,7 @@ public class keyHandler implements KeyListener
         }
         else if(e.getKeyCode() == 38)
         {
-            rects.get(0).moveUp();
+            //rects.get(0).moveUp();
         }
         else if(e.getKeyCode() == 39)
         {
@@ -34,7 +34,7 @@ public class keyHandler implements KeyListener
         }
         else if(e.getKeyCode() == 40)
         {
-            rects.get(0).moveDown();
+            //rects.get(0).moveDown();
         }
     }
 

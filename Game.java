@@ -15,8 +15,8 @@ public class Game extends JPanel
     {
         super();
         rects.add(new Rectangles((X/2)-75,624,Color.BLACK,75,17));
-        rects.add(new Rectangles(X/2,Y/2,new Color(200, 0, 0),50,10));
-        System.out.println(Y/2);
+        rects.add(new Rectangles(X/2,0,new Color(200, 0, 0),50,10));
+        //System.out.println(Y/2);
         setSize(X, Y);
         setVisible(true);
         add(rects.get(0));

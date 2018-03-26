@@ -20,11 +20,11 @@ public class Rectangles extends JComponent
     {
         this.color = color;
         setPreferredSize(new Dimension(width, height));
-        System.out.println(""+color+""+width+""+height);
+        //System.out.println(""+color+""+width+""+height);
         xpos = x;
         ypos = y;
-        moveAngle = (double)180 + rand.nextDouble() * ((double)0 - (double)180);
-        System.out.println(moveAngle);
+        moveAngle = (double)175 + rand.nextDouble() * ((double)5 - (double)175);
+        //System.out.println(moveAngle);
         repaint();
     }
     
@@ -103,7 +103,8 @@ public class Rectangles extends JComponent
         if(ypos >= 635)
         {
             ypos = 0;
-            moveAngle = (double)180 + rand.nextDouble() * ((double)0 - (double)180);
+            speed++;
+            moveAngle = (double)175 + rand.nextDouble() * ((double)5 - (double)175);
         }
         if(xpos >= 1075)
         {
