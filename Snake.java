@@ -15,6 +15,7 @@ public class Snake extends JFrame
         System.out.println("Dont get hit by the red rectangle otherwise you lose!");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(1126, 680);
+        setLocationRelativeTo(null);
         setFocusable(true);
         setResizable(false);
         setFocusTraversalKeysEnabled(false);
