@@ -7,7 +7,7 @@ public class Snake extends JFrame
 {
     static GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
     static GraphicsDevice gs = ge.getDefaultScreenDevice();
-    public final static boolean inDebugMode = false;
+    public final static boolean inDebugMode = true;
     public static JFrame gameWindow;
     public Snake()
     {

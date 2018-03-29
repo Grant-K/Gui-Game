@@ -14,7 +14,7 @@ public class Rectangles extends JComponent
     private int xpos;
     private int ypos;
     private static Random rand = new Random();
-    public static double moveAngle;
+    private static double moveAngle;
     public static int speed = 8;
     public Rectangles(int x, int y, Color color, int width, int height)
     {
